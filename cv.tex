@@ -1,108 +1,43 @@
 %-----------------------------------------------------------------------------------------------------------------------------------------------%
-%	The MIT License (MIT)
-%
-%	Copyright (c) 2021 Jitin Nair
-%
-%	Permission is hereby granted, free of charge, to any person obtaining a copy
-%	of this software and associated documentation files (the "Software"), to deal
-%	in the Software without restriction, including without limitation the rights
-%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-%	copies of the Software, and to permit persons to whom the Software is
-%	furnished to do so, subject to the following conditions:
-%	
-%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-%	THE SOFTWARE.
-%	
-%
+%    CV template adapted for Alessio Tusca
 %-----------------------------------------------------------------------------------------------------------------------------------------------%
+\documentclass[a4paper,10pt]{article}
 
-%----------------------------------------------------------------------------------------
-%	DOCUMENT DEFINITION
-%----------------------------------------------------------------------------------------
-
-% article class because we want to fully customize the page and not use a cv template
-\documentclass[a4paper,12pt]{article}
-
-%----------------------------------------------------------------------------------------
-%	FONT
-%----------------------------------------------------------------------------------------
-
-% % fontspec allows you to use TTF/OTF fonts directly
-% \usepackage{fontspec}
-% \defaultfontfeatures{Ligatures=TeX}
-
-% % modified for ShareLaTeX use
-% \setmainfont[
-% SmallCapsFont = Fontin-SmallCaps.otf,
-% BoldFont = Fontin-Bold.otf,
-% ItalicFont = Fontin-Italic.otf
-% ]
-% {Fontin.otf}
-
-%----------------------------------------------------------------------------------------
-%	PACKAGES
-%----------------------------------------------------------------------------------------
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage{url}
-\usepackage{parskip} 	
-
-%other packages for formatting
+\usepackage{parskip}
 \RequirePackage{color}
 \RequirePackage{graphicx}
-\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage[scale=0.9]{geometry}
-
-%tabularx environment
 \usepackage{tabularx}
-
-%for lists within experience section
 \usepackage{enumitem}
-
-% centered version of 'X' col. type
-\newcolumntype{C}{>{\centering\arraybackslash}X} 
-
-%to prevent spillover of tabular into next pages
-\usepackage{supertabular}
-\usepackage{tabularx}
-\newlength{\fullcollw}
-\setlength{\fullcollw}{0.47\textwidth}
-
-%custom \section
-\usepackage{titlesec}				
+\usepackage{titlesec}
 \usepackage{multicol}
 \usepackage{multirow}
-
-%CV Sections inspired by: 
-%http://stefano.italians.nl/archives/26
-\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{10pt}{10pt}
-
-%for publications
 \usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
-
-%Setup hyperref package, and colours for links
 \usepackage[unicode, draft=false]{hyperref}
+\usepackage{fontawesome5}
+\usepackage{colortbl}
+\addbibresource{citations.bib}
+
+% Layout tweaks
 \definecolor{linkcolour}{rgb}{0,0.2,0.6}
 \hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
-\addbibresource{citations.bib}
 \setlength\bibitemsep{1em}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{8pt}{8pt}
 
-%for social icons
-\usepackage{fontawesome5}
-
-%debug page outer frames
-%\usepackage{showframe}
-
-
-% job listing environments
+% Job environments
 \newenvironment{jobshort}[2]
     {
     \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+        		\textbf{#1} & \hfill &  #2 \\[3.75pt]
     \end{tabularx}
     }
     {
@@ -111,7 +46,7 @@
 \newenvironment{joblong}[2]
     {
     \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+        		\textbf{#1} & \hfill &  #2 \\[3.75pt]
     \end{tabularx}
     \begin{minipage}[t]{\linewidth}
     \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
@@ -121,94 +56,73 @@
     \end{minipage}    
     }
 
-
-
-%----------------------------------------------------------------------------------------
-%	BEGIN DOCUMENT
-%----------------------------------------------------------------------------------------
+% Document
 \begin{document}
+\pagestyle{empty}
 
-% non-numbered pages
-\pagestyle{empty} 
-
-%----------------------------------------------------------------------------------------
-%	TITLE
-%----------------------------------------------------------------------------------------
-
-% \begin{tabularx}{\linewidth}{ @{}X X@{} }
-% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
-% \raisebox{-0.05\height}\faGithub\ username \ | \
-% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
-% \end{tabularx}
-
-\begin{tabularx}{\linewidth}{@{} C @{}}
-\Huge{Your Name} \\[7.5pt]
-\href{https://github.com/username}{\raisebox{-0.05\height}\faGithub\ username} \ $|$ \ 
-\href{https://linkedin.com/in/username}{\raisebox{-0.05\height}\faLinkedin\ username} \ $|$ \ 
-\href{https://mysite.com}{\raisebox{-0.05\height}\faGlobe \ mysite.com} \ $|$ \ 
-\href{mailto:email@mysite.com}{\raisebox{-0.05\height}\faEnvelope \ email@mysite.com} \ $|$ \ 
-\href{tel:+000000000000}{\raisebox{-0.05\height}\faMobile \ +00.00.000.000} \\
+% Header
+\begin{tabularx}{\linewidth}{@{} C @{} }
+\Huge{Alessio Tuscano} \\[5pt]
+\href{https://github.com/tusca99}{\raisebox{-0.05\height}\faGithub\ tusca99} \ $|$ \ 
+\href{https://www.linkedin.com/in/alessio-tuscano-188b5315a}{\raisebox{-0.05\height}\faLinkedin\ alessio-tuscano} \ $|$ \ 
+\href{mailto:alessio.tuscano@studenti.unipd.it}{\raisebox{-0.05\height}\faEnvelope \ alessio.tuscano@studenti.unipd.it} \ $|$ \ 
+\href{mailto:alessio@tuscano.it}{\raisebox{-0.05\height}\faEnvelope \ alessio@tuscano.it} \\
 \end{tabularx}
 
-%----------------------------------------------------------------------------------------
-% EXPERIENCE SECTIONS
-%----------------------------------------------------------------------------------------
-
-%Interests/ Keywords/ Summary
 \section{Summary}
-This CV can also be automatically complied and published using GitHub Actions. For details, \href{https://github.com/jitinnair1/autoCV}{click here}.
+{Physics master's student (M.Sc. Physics of Data, University of Padova) with a strong background in computational physics, high-performance computing, and scientific software development. Experienced in accelerating and optimizing existing codebases for large-scale simulations (CPU/GPU), with solid theoretical foundations in statistical mechanics, complex systems, and data analysis. Skilled in parallel programming, numerical methods, and modern approaches to inference and modeling.
+}
 
-%Experience
+% Work Experience
 \section{Work Experience}
 
-\begin{jobshort}{Designation}{Jan 2021 - present}
-long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width
-\end{jobshort}
-
-
-\begin{joblong}{Designation}{Mar 2019 - Jan 2021}
-\item long long line of blah blah that will wrap when the table fills the column width
-\item again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah. again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah
+\begin{joblong}{Research guest collaborator --- INFN (FEROCE project)}{2025--present}
+\item Currently working on GPU accelerated data pipelines and computational kernels in containers, enabling easy scalability and deployment for FEROCE project, related proceeding: \url{https://agenda.infn.it/event/44098/contributions/253504/}.
 \end{joblong}
-  
-%Projects
+
+\begin{joblong}{Typesetter}{2025--present}
+\item Typesetting and related automations for academic publications and collaborations at SISSA-medialab for scientific journals such as JCAP.
+\end{joblong}
+
+\section{Education \& Languages}
+\begin{tabularx}{\linewidth}{@{}l X l X@{}}
+2024--present & M.Sc. Physics of Data, \textbf{University of Padova} & \textbf{Italian} & Native \\
+2018--2024 & B.Sc. Physics, \textbf{University of Padova} & \textbf{English} & Professional/Fluent \\
+\end{tabularx}
+
+% Projects
 \section{Projects}
 
 \begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Some Project} & \hfill \href{https://some-link.com}{Link to Demo} \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width}  \\
+        \textbf{Bachelor thesis --- Water's surface potential reproduction with Neural Network} & \hfill \href{https://github.com/tusca99/Bachelor-Thesis}{GitHub} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{\small Implemented numerical exact method (DFT) simulations in a distributed environment to create a dataset for a fine regression task with a Neural Network; code and thesis (in Italian only) available on GitHub.}  \\
+\arrayrulecolor{gray!30}\hline        
+        \textbf{N-body simulation} & \hfill \href{https://github.com/tusca99/N-body-simulation}{GitHub} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{\small High-performance, modular C++/CUDA framework for astrophysical N-body simulations. Supports GPU acceleration, OpenMP parallelism, flexible initialization, and interactive visualization. Extensible codebase for research and experimentation; full documentation and code available on GitHub.}  \\
+\arrayrulecolor{gray!30}\hline
+        \textbf{Fine--Grained Vehicle Recognition with CNNs} & \hfill \href{https://github.com/tusca99/Cars-classification-using-CNN}{GitHub} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{\small Designed and trained CNN and Siamese models on the CompCars dataset for vehicle classification and verification under class imbalance. Compared Cross-Entropy, Focal, and Contrastive losses.}  \\
+\arrayrulecolor{gray!30}\hline
+    \textbf{Hopfield Neural Network} & \hfill \href{https://github.com/tusca99/Hopfield-Model}{GitHub} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{\small Implemented a Hopfield neural network for pattern recognition and image reconstruction on synthetic 2D patterns and MNIST, evaluating performance under noise and alternative update rules.}  \\
+\arrayrulecolor{gray!30}\hline
+    \textbf{Distributed K-Means with Dask} & \hfill \href{https://github.com/tusca99/Distributed-K-Means-Dask}{GitHub} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{\small Implemented and benchmarked a distributed K-Means parallel algorithm with Dask, extending the dask-ml implementation with weighted centroid updates. Configured VM clusters via SSH, optimized memory/thread allocation, and analyzed scalability on large datasets (KDD Cup 1999).}  \\
+\arrayrulecolor{gray!30}\hline
+    \textbf{Simulation-Based Inference for a 2D random walk model} & \hfill \href{https://github.com/tusca99/PoD-LACP-B}{GitHub} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{\small Applied simulation-based inference with neural posterior estimation to recover parameters of a stochastic 2D random walk, validated on an analytically solvable quartic model, and extended to a red blood cell model not accessible analytically. Optimized simulation performance with Numba to achieve C-like speed.}  \\
+\arrayrulecolor{gray!30}\hline
+    \textbf{Bayesian Analysis of ARPAV time series} & \hfill \href{https://github.com/tusca99/Bayesian-Analysis-ARPAV-Temperature-Time-Series}{GitHub} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{\small Conducted a Bayesian analysis of ARPAV temperature and precipitation time series using MCMC methods to estimate trends and assess model fit, and applied SARIMA models for time series forecasting.}  \\
+%\arrayrulecolor{gray!30}\hline
 \end{tabularx}
 
-%----------------------------------------------------------------------------------------
-%	EDUCATION
-%----------------------------------------------------------------------------------------
-\section{Education}
-\begin{tabularx}{\linewidth}{@{}l X@{}}	
-2030 - present & PhD (Subject) at \textbf{University} \hfill \normalsize (GPA: 4.0/4.0) \\
-
-2023 - 2027 & Bachelor's Degree at \textbf{College} \hfill (GPA: 4.0/4.0) \\ 
-
-2022 & Class 12th Some Board \hfill  (Grades) \\
-
-2021 & Class 10th Some Board \hfill  (Grades) \\
-\end{tabularx}
-
-%----------------------------------------------------------------------------------------
-%	PUBLICATIONS
-%----------------------------------------------------------------------------------------
-\section{Publications}
-\begin{refsection}[citations.bib]
-\nocite{*}
-\printbibliography[heading=none]
-\end{refsection}
-
-%----------------------------------------------------------------------------------------
-%	SKILLS
-%----------------------------------------------------------------------------------------
+% Skills
 \section{Skills}
 \begin{tabularx}{\linewidth}{@{}l X@{}}
-Some Skills &  \normalsize{This, That, Some of this and that etc.}\\
-Some More Skills  &  \normalsize{Also some more of this, Some more that, And some of this and that etc.}\\  
+Programming &  \normalsize{C/C++, Python, CUDA, OpenGL, Bash, R, basic HDL (Verilog/VHDL)}\\
+HPC and parallelism  &  \normalsize{Asyncio, Dask, Numba, MPI, OpenMP, GPU acceleration, profiling}\\
+Tools and infra &  \normalsize{Git, Docker, Kubernetes, Linux, FreeBSD}\\
 \end{tabularx}
 
 \vfill
